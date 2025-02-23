@@ -19,14 +19,54 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">D&D Monsters</h1>
-      <div className="max-w-lg mx-auto">
+    <div>
+      <h1>D&D Monsters</h1>
+      <div
+        className="max-w-lg mx-auto"
+        style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}
+      >
         {monsters.map((monster) => (
-          <div key={monster.id} className="bg-gray-800 p-4 rounded-lg mb-4">
-            <h2 className="text-xl">{monster.name}</h2>
+          <div
+            key={monster.id}
+            className="Monster-block"
+            style={{
+              backgroundColor: "#61dafb",
+              marginTop: "15px",
+              width: "30%",
+            }}
+          >
+            <h2 className="Name-text">{monster.name}</h2>
+            <img
+              src={monster.photo_url}
+              alt={monster.name}
+              style={{
+                objectFit: "cover",
+                width: "230px",
+                height: "230px",
+                margin: "20px auto",
+                display: "block",
+              }}
+            />
             <p>Armor Class: {monster.armor_class}</p>
             <p>Health: {monster.health}</p>
+            <p>Speed: {monster.speed}</p>
+            <p>Challenge Rating: {monster.challenge_rating}</p>
+            <div
+              className="stats"
+              style={{
+                display: "flex",
+                gap: "15px",
+                padding: "10px",
+                background: "50% 50%",
+              }}
+            >
+              <p>Str {monster.strength}</p>
+              <p>Dex {monster.dexterity}</p>
+              <p>Con {monster.constitution}</p>
+              <p>Int {monster.constitution}</p>
+              <p>Wis {monster.constitution}</p>
+              <p>Cha {monster.constitution}</p>
+            </div>
           </div>
         ))}
       </div>
